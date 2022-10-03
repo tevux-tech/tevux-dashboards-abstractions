@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+	<metadata>
+		<id>Tevux.Dashboards.Abstractions</id>
+		<version>0.38.0</version>
+		<title>Tevux.Dashboards.Abstractions</title>
+		<authors>Tevux Technologies</authors>
+		<description>Every Tevux Dashboards library must reference this NuGet.</description>
+		<copyright>© 2022 Tevux Technologies</copyright>
+		<license type="expression">MIT</license>
+		<requireLicenseAcceptance>true</requireLicenseAcceptance>
+		<repository type="git" url="$repository$" />
+		<projectUrl>$projectUrl$</projectUrl>
+		<tags>tevux.tech</tags>
+	</metadata>
+	<files>
+		<file src="bin\Release\net6.0\Tevux.Dashboards.Abstractions.*" target="lib/net6.0" />
+	</files>
+</package>
