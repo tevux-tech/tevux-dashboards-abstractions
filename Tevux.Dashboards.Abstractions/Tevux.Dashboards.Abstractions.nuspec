@@ -2,7 +2,7 @@
 <package>
 	<metadata>
 		<id>Tevux.Dashboards.Abstractions</id>
-		<version>$version$</version>
+		<version>0.38.0-preview.1</version>
 		<title>Tevux.Dashboards.Abstractions</title>
 		<authors>Tevux Technologies</authors>
 		<description>Every Tevux Dashboards library must reference this NuGet.</description>
