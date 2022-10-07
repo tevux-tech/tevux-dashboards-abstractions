@@ -67,8 +67,8 @@ class Build : NukeBuild {
     Target UpdateVersions => _ => _
         .DependsOn(GetVersionInfo)
         .Executes(() => {
-            var assemblyInfoContent = File.ReadAllText(NuspecFilename);
-            ReplaceVersion(ref assemblyInfoContent, NextPackageVersion.ToString(), "<version>", "</version>");
+            var assemblyInfoContent = File.ReadAllText(ProjectFilename);
+            ReplaceVersion(ref assemblyInfoContent, NextPackageVersion.ToString(), "<Version>", "</Version>");
             File.WriteAllText(NuspecFilename, assemblyInfoContent);
         });
 
