@@ -3,7 +3,14 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Version>0.38.0-preview.0</Version>
+    <Version>0.39.0-preview.2</Version>
+    <Company>Tevux Technologies</Company>
+    <Copyright>© 2022 Tevux Technologies</Copyright>
+    <Title>Tevux.Dashboards.Abstractions</Title>
+    <Authors>devbotas</Authors>
+    <Description>Every Tevux Dashboards library must reference this NuGet.</Description>
+    <RepositoryUrl>https://github.com/tevux-tech/tevux-dashboards-abstractions</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/tevux-tech/tevux-dashboards-abstractions</PackageProjectUrl>
 
     <!--Configuring source Link-->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
@@ -16,8 +23,8 @@
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="Tevux.Tools.RepositorySettings" Version="1.1.0">
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+    <PackageReference Include="Tevux.Tools.RepositorySettings" Version="1.2.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
