@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
 	<metadata>
-		<id>Tevux.Dashboards.Abstractions</id>
-		<version>0.39.0-preview.1</version>
-		<title>Tevux.Dashboards.Abstractions</title>
-		<authors>Tevux Technologies</authors>
-		<description>Every Tevux Dashboards library must reference this NuGet.</description>
-		<copyright>© 2022 Tevux Technologies</copyright>
+		<id>$id$</id>
+		<version>$version$</version>
+		<title>$title$</title>
+		<authors>$authors$</authors>
+		<copyright>$copyright$</copyright>
+		<description>$description$</description>
 		<license type="expression">MIT</license>
 		<requireLicenseAcceptance>true</requireLicenseAcceptance>
 		<repository type="git" url="$repository$" />
