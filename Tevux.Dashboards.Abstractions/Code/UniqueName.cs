@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace Tevux.Dashboards.Designer;
+namespace Tevux.Dashboards.Abstractions;
 
 public struct UniqueName : IComparable {
     private readonly string _fullName = "";
