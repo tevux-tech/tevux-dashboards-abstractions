@@ -1,4 +1,5 @@
-﻿using System.Runtime.Loader;
+﻿using System.Reflection;
+using System.Runtime.Loader;
 using Tevux.Dashboards.Designer;
 
 namespace Tevux.Dashboards.Abstractions;
@@ -10,6 +11,8 @@ public class LibraryData {
     public UniqueName Name { get; init; } = new();
     public Dictionary<OptionEditorAttribute, Type> OptionEditors { get; } = new();
     public FileInfo RootAssemblyInfo { get; init; } = null!;
+    public AssemblyName RootAssemblyName { get; set; } = null!;
+    public Assembly RootAssembly { get; set; } = null!;
     public Type? ScriptContext { get; set; }
 
     public override string ToString() {
