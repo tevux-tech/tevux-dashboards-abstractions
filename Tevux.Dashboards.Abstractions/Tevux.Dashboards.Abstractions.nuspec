@@ -17,6 +17,7 @@
 		</dependencies>
 	</metadata>
 	<files>
+		<file src="Resources\tevux-logo-symbol.png" target="images\" />
 		<file src="bin\Release\net6.0\Tevux.Dashboards.Abstractions.*" target="lib/net6.0" />
 	</files>
 </package>
