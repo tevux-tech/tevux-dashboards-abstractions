@@ -3,18 +3,19 @@ using System.Text.RegularExpressions;
 
 namespace Tevux.Dashboards.Abstractions;
 
-public struct UniqueName : IComparable {
-    public static Regex MsVersionRegex = new(@"^(?<name>[a-zA-z.-]+)(\.)(?<version>(?<major>0|[1-9]\d*)\.(?<minor>0|[1-9]\d*)\.(?<patch>0|[1-9]\d*)\.(?<build>0|[1-9]\d*))$");
-    public static Regex SemVersionRegex = new(@"^(?<name>[a-zA-z.-]+)(\.)(?<version>(?<major>0|[1-9]\d*)\.(?<minor>0|[1-9]\d*)\.(?<patch>0|[1-9]\d*)(?:-(?<prerelease>(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+(?<buildmetadata>[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?)$");
-
+public struct UniqueName : IComparable, IEquatable<UniqueName> {
     private readonly string _fullName = "";
+
     public UniqueName(string name, SemVersion version) {
         BaseName = name;
         SemVersion = version;
         _fullName = BaseName + "." + SemVersion;
     }
+
     public UniqueName() : this("Empty", new SemVersion(0)) { }
 
+    public static Regex MsVersionRegex { get; } = new(@"^(?<name>[a-zA-z.-]+)(\.)(?<version>(?<major>0|[1-9]\d*)\.(?<minor>0|[1-9]\d*)\.(?<patch>0|[1-9]\d*)\.(?<build>0|[1-9]\d*))$");
+    public static Regex SemVersionRegex { get; } = new(@"^(?<name>[a-zA-z.-]+)(\.)(?<version>(?<major>0|[1-9]\d*)\.(?<minor>0|[1-9]\d*)\.(?<patch>0|[1-9]\d*)(?:-(?<prerelease>(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+(?<buildmetadata>[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?)$");
     public string BaseName { get; private set; } = "";
     public string FullName { get { return _fullName; } }
     public Version MsVersion { get { return SemVersion.ToVersion(); } }
@@ -63,13 +64,17 @@ public struct UniqueName : IComparable {
         if (obj is not UniqueName nameToCompareAgainst) { return 1; }
         if (nameToCompareAgainst.BaseName != BaseName) { return 1; }
 
-        return SemVersion.CompareTo(nameToCompareAgainst.SemVersion);
+        return SemVersion.ComparePrecedenceTo(nameToCompareAgainst.SemVersion);
     }
 
     public override bool Equals(object? obj) {
         if (obj is not UniqueName nameToCompareAgainst) { return false; }
 
         return FullName == nameToCompareAgainst.FullName;
+    }
+
+    public bool Equals(UniqueName other) {
+        return FullName == other.FullName;
     }
 
     public override int GetHashCode() {
