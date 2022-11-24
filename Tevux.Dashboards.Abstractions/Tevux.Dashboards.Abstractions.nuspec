@@ -11,6 +11,8 @@
 		<requireLicenseAcceptance>true</requireLicenseAcceptance>
 		<repository type="git" url="$repository$" />
 		<projectUrl>$projectUrl$</projectUrl>
+		<icon>images\tevux-logo-symbol.png</icon>
+		<readme>README.md</readme>
 		<tags>tevux.tech</tags>
 		<dependencies>
 			<group targetFramework="net6.0" />
@@ -18,6 +20,7 @@
 	</metadata>
 	<files>
 		<file src="Resources\tevux-logo-symbol.png" target="images\" />
+		<file src="..\README.md" target="\" />
 		<file src="bin\Release\net6.0\Tevux.Dashboards.Abstractions.*" target="lib/net6.0" />
 	</files>
 </package>
