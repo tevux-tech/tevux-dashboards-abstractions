@@ -15,7 +15,9 @@
 		<readme>README.md</readme>
 		<tags>tevux.tech</tags>
 		<dependencies>
-			<group targetFramework="net6.0" />
+			<group targetFramework="net6.0">
+				<dependency id="Semver" version="2.2.0" exclude="Build,Analyzers" />
+			</group>
 		</dependencies>
 	</metadata>
 	<files>
