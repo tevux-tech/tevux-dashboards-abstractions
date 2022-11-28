@@ -1,6 +1,5 @@
 ﻿using System.Reflection;
 using System.Runtime.Loader;
-using Tevux.Dashboards.Designer;
 
 namespace Tevux.Dashboards.Abstractions;
 
