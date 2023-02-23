@@ -1,51 +1,47 @@
 ﻿namespace Tevux.Dashboards.Abstractions;
 
-public class EmptyPluginMessenger : ISharedLibraryMessenger {
-    public void Get(GenericMessage message) {
-        throw new NotImplementedException();
+public class EmptyLibraryMessenger : ISharedLibraryMessenger {
+    public void GetValue(string token, out object value) {
+        value = new();
     }
 
-    void ISharedLibraryMessenger.GetValue(string token, out object value) {
-        throw new NotImplementedException();
+    public void Register<TMessage>(object recipient, string token, Action<TMessage> action) {
+
     }
 
-    void ISharedLibraryMessenger.Register<TMessage>(object recipient, string token, Action<TMessage> action) {
-        throw new NotImplementedException();
+    public void Register<TMessage>(object recipient, Action<TMessage> action) {
+
     }
 
-    void ISharedLibraryMessenger.Register<TMessage>(object recipient, Action<TMessage> action) {
-        throw new NotImplementedException();
+    public void Register(object recipient, string token, Action<object> action) {
+
     }
 
-    void ISharedLibraryMessenger.Register(object recipient, string token, Action<object> action) {
-        throw new NotImplementedException();
+    public void Send<TMessage>(TMessage message) {
+
     }
 
-    void ISharedLibraryMessenger.Send<TMessage>(TMessage message) {
-        throw new NotImplementedException();
+    public void Send<TMessage>(string token, TMessage message) {
+
     }
 
-    void ISharedLibraryMessenger.Send<TMessage>(string token, TMessage message) {
-        throw new NotImplementedException();
+    public void SetValue(string token, object value) {
+
     }
 
-    void ISharedLibraryMessenger.SetValue(string token, object value) {
-        throw new NotImplementedException();
+    public void Unregister<TMessage>(object recipient, string token, Action<TMessage> action) {
+
     }
 
-    void ISharedLibraryMessenger.Unregister<TMessage>(object recipient, string token, Action<TMessage> action) {
-        throw new NotImplementedException();
+    public void Unregister<TMessage>(object recipient, Action<TMessage> action) {
+
     }
 
-    void ISharedLibraryMessenger.Unregister<TMessage>(object recipient, Action<TMessage> action) {
-        throw new NotImplementedException();
+    public void Unregister(object recipient, string token, Action<object> action) {
+
     }
 
-    void ISharedLibraryMessenger.Unregister(object recipient, string token, Action<object> action) {
-        throw new NotImplementedException();
-    }
+    public void Unregister(object recipient) {
 
-    void ISharedLibraryMessenger.Unregister(object recipient) {
-        throw new NotImplementedException();
     }
 }
