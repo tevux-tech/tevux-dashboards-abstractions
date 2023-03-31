@@ -1,5 +1,6 @@
 ﻿namespace Tevux.Dashboards.Abstractions;
 
+[Obsolete]
 [AttributeUsage(AttributeTargets.Class)]
 public class OptionEditorAttribute : Attribute {
     public OptionEditorAttribute(Type control, string header) {
