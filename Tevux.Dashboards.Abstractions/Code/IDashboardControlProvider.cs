@@ -1,5 +1,5 @@
 ﻿namespace Tevux.Dashboards.Abstractions;
 
 public interface IDashboardControlProvider {
-    public List<Type> GetDashboardControls();
+    public List<Type> DashboardControls { get; }
 }

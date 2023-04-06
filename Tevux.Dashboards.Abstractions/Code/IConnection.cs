@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 
 namespace Tevux.Dashboards.Abstractions;
-public interface IConnectionBackend : INotifyPropertyChanged {
+public interface IConnection : INotifyPropertyChanged {
     public IEnumerable<ConnectionDefinition> AvailableDefinitions { get; }
     public ConnectionDefinition CurrentDefinition { get; set; }
     public bool IsConnected { get; }
