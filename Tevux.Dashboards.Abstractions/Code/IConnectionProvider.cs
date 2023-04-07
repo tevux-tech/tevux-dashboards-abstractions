@@ -1,7 +1,6 @@
-﻿using System.ComponentModel;
+﻿namespace Tevux.Dashboards.Abstractions;
 
-namespace Tevux.Dashboards.Abstractions;
-public interface IConnectionProvider : INotifyPropertyChanged {
+public interface IConnectionProvider {
     IConnection Connection { get; }
     public object GuiControl { get; }
 }
