@@ -2,5 +2,5 @@
 
 public interface IConnectionProvider {
     IConnection Connection { get; }
-    public object GuiControl { get; }
+    public object ConnectionGuiControl { get; }
 }
