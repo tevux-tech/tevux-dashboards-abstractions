@@ -1,4 +1,4 @@
 ﻿namespace Tevux.Dashboards.Abstractions;
-public interface ICSharpScriptControlBase {
+public interface ICSharpScriptControl {
     string Script { get; set; }
 }

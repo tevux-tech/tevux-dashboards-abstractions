@@ -2,11 +2,11 @@
 
 
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
-public class HiddenExposedOptionAttribute : Attribute {
-    public HiddenExposedOptionAttribute(string optionName) {
+public class HideExposedOptionAttribute : Attribute {
+    public HideExposedOptionAttribute(string optionName) {
         OptionName = optionName;
     }
-    public HiddenExposedOptionAttribute() { }
+    public HideExposedOptionAttribute() { }
 
     public string OptionName { get; set; } = "";
 }

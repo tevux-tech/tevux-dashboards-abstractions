@@ -1,4 +1,4 @@
 ﻿namespace Tevux.Dashboards.Abstractions;
-public interface IConditionalOutputControlBase {
+public interface IConditionalTextualOutputControl {
     string Rules { get; set; }
 }

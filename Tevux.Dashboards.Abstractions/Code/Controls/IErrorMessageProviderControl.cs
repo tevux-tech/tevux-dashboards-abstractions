@@ -1,4 +1,4 @@
 ﻿namespace Tevux.Dashboards.Abstractions;
-public interface IErrorMessageProvider {
+public interface IErrorMessageProviderControl {
     string ErrorMessage { get; }
 }
