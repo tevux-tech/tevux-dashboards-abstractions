@@ -1,5 +1,6 @@
 ﻿namespace Tevux.Dashboards.Abstractions;
 
+[Obsolete]
 [AttributeUsage(AttributeTargets.Assembly)]
 public class AssemblyLoadContextAttribute : Attribute {
     public AssemblyLoadContextAttribute(string friendlyName) {
