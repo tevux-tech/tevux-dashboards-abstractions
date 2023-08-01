@@ -1,12 +1,6 @@
 ﻿namespace Tevux.Dashboards.Abstractions;
 
 public interface ICacheProvider {
-    [Obsolete]
-    public bool TryRead(object owner, string propertyName, out object? value);
-
-    [Obsolete]
-    void Write(object owner, string propertyName, object value);
-
     public bool TryRead(object owner, string propertyName, out int value);
     public bool TryRead(object owner, string propertyName, out double value);
     public bool TryRead(object owner, string propertyName, out string value);
