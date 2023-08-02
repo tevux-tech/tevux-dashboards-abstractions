@@ -32,7 +32,7 @@ public class TextualAppearanceRule : AppearanceRule {
         }
     }
 
-    public static bool TryParse(string rawString, out AppearanceRule rule) {
+    public static bool TryParse(string rawString, out TextualAppearanceRule rule) {
         var ruleParts = rawString.Split('|');
 
         if (ruleParts.Length < 3) { goto error; }
@@ -50,7 +50,7 @@ public class TextualAppearanceRule : AppearanceRule {
         return true;
 
     error:
-        rule = new AppearanceRule();
+        rule = new TextualAppearanceRule(AppearanceRuleCondition.Undefined, "");
         return false;
     }
 }
