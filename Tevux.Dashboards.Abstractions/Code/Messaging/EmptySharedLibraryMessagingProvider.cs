@@ -1,25 +1,8 @@
 ﻿namespace Tevux.Dashboards.Abstractions;
 
-public interface ISharedLibraryMessagingProvider {
-    // Shorthand methods to exchange simple, unstructured data.
-    public void GetValue(string token, out object value);
-    public void SetValue(string token, object value);
-
-    // Full-blown methods to exchange structured data.
-    public void Send<TMessage>(TMessage message);
-    public void Send<TMessage>(string token, TMessage message);
-
-    // Register/unregister methods.
-    public void Register<TMessage>(object recipient, string token, Action<TMessage> action);
-    public void Register<TMessage>(object recipient, Action<TMessage> action);
-    public void Register(object recipient, string token, Action<object> action);
-
-    public void Unregister<TMessage>(object recipient, string token, Action<TMessage> action);
-    public void Unregister<TMessage>(object recipient, Action<TMessage> action);
-    public void Unregister(object recipient, string token, Action<object> action);
-    public void Unregister(object recipient);
-}
-
+/// <summary>
+/// An empty implementation of <see cref="ISharedLibraryMessagingProvider"/> to use instead of <c>null</c>.
+/// </summary>
 public class EmptySharedLibraryMessagingProvider : ISharedLibraryMessagingProvider {
     public void GetValue(string token, out object value) {
         value = new();
