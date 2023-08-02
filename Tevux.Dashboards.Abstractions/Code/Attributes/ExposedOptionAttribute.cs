@@ -4,8 +4,17 @@ public enum OptionType {
     Number,
     SingleLineText,
     MultiLineText,
-    ChoiceText,
-    ChoiceTextYesNo
+    ChoiceText
+}
+
+[AttributeUsage(AttributeTargets.Property)]
+public class ExposedChoiceAttribute : ExposedOptionAttribute {
+    public ExposedChoiceAttribute(bool isEditable = true, bool isSaveable = true, params string[] choices) : base(OptionType.ChoiceText, isEditable, isSaveable, choices) { }
+}
+
+[AttributeUsage(AttributeTargets.Property)]
+public class ExposedNumberAttribute : ExposedOptionAttribute {
+    public ExposedNumberAttribute(bool isEditable = true, bool isSaveable = true) : base(OptionType.Number, isEditable, isSaveable) { }
 }
 
 [AttributeUsage(AttributeTargets.Property)]
@@ -23,16 +32,21 @@ public class ExposedOptionAttribute : Attribute {
                     }
                 }
                 break;
-
-            case OptionType.ChoiceTextYesNo:
-                Choices.Add("yes");
-                Choices.Add("no");
-                break;
         }
     }
 
-    public List<string> Choices { get; private set; } = new List<string>();
-    public OptionType OptionType { get; private set; }
+    public List<string> Choices { get; private set; } = new();
     public bool IsEditable { get; private set; }
     public bool IsSaveable { get; private set; }
+    public OptionType OptionType { get; private set; }
+}
+
+[AttributeUsage(AttributeTargets.Property)]
+public class ExposedSingleLineTextAttribute : ExposedOptionAttribute {
+    public ExposedSingleLineTextAttribute(bool isEditable = true, bool isSaveable = true) : base(OptionType.SingleLineText, isEditable, isSaveable) { }
+}
+
+[AttributeUsage(AttributeTargets.Property)]
+public class ExposedMultiLineTextAttribute : ExposedOptionAttribute {
+    public ExposedMultiLineTextAttribute(bool isEditable = true, bool isSaveable = true) : base(OptionType.MultiLineText, isEditable, isSaveable) { }
 }
