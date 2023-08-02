@@ -1,4 +1,4 @@
-﻿namespace Tevux.Dashboards.Abstractions.Code.DummyImplementations;
+﻿namespace Tevux.Dashboards.Abstractions;
 
 /// <summary>
 /// An empty implementation of <see cref="ScriptContextBase"/> to use instead of <c>null</c>.
