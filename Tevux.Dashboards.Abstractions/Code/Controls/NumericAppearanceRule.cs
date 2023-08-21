@@ -2,6 +2,9 @@
 
 namespace Tevux.Dashboards.Abstractions;
 
+/// <summary>
+/// Appearance rule for numbers. Note that final formatted output will be a string, not a number.
+/// </summary>
 public class NumericAppearanceRule : AppearanceRule {
     private decimal? _decimalValue;
     private string _stringValue = "0";
@@ -10,11 +13,12 @@ public class NumericAppearanceRule : AppearanceRule {
         _decimalValue = value;
     }
 
+    /// <inheritdoc/>
     public override string Value {
         get {
             return _stringValue;
         }
-        set {
+        protected set {
             if (decimal.TryParse(value, NumberStyles.Number, CultureInfo.InvariantCulture, out var number)) {
                 _stringValue = value;
                 _decimalValue = number;
@@ -22,6 +26,9 @@ public class NumericAppearanceRule : AppearanceRule {
         }
     }
 
+    /// <summary>
+    /// Tries parsing a rule from a string.
+    /// </summary>
     public static bool TryParse(string rawString, out NumericAppearanceRule rule) {
         var ruleParts = rawString.Split('|');
 
@@ -48,9 +55,13 @@ public class NumericAppearanceRule : AppearanceRule {
         return false;
     }
 
+    /// <summary>
+    /// Checks if a value matches any conditions in the rule list.
+    /// </summary>
     public bool Matches(decimal checkValue) {
         return Matches(checkValue, _decimalValue);
     }
+
     private bool Matches(decimal x, decimal? y) {
         if (y.HasValue == false) { return false; }
 

@@ -1,8 +1,9 @@
 ﻿namespace Tevux.Dashboards.Abstractions;
 
-public class AppearanceRule {
-    //private decimal? _decimalValue;
-    //private string _stringValue = "";
+/// <summary>
+/// Base class for <see cref="NumericAppearanceRule"/> and <see cref="TextualAppearanceRule"/>.
+/// </summary>
+public abstract class AppearanceRule {
     internal AppearanceRule() { }
 
     internal AppearanceRule(AppearanceRuleCondition condition, AppearanceRuleType type = AppearanceRuleType.Warning, string textFormat = "") {
@@ -10,15 +11,6 @@ public class AppearanceRule {
         TextFormat = textFormat;
         Style = AppearanceRuleStyle.FromType(type);
     }
-
-    //public AppearanceRule(AppearanceRuleCondition condition, decimal value, AppearanceRuleType style = AppearanceRuleType.Warning, string textFormat = "") : this(condition, style, textFormat) {
-    //    _decimalValue = value;
-    //    _stringValue = value.ToString(CultureInfo.InvariantCulture);
-    //}
-
-    //public AppearanceRule(AppearanceRuleCondition condition, string value, AppearanceRuleType style = AppearanceRuleType.Warning, string textFormat = "") : this(condition, style, textFormat) {
-    //    Value = value;
-    //}
 
     /// <summary>
     /// A <see cref="AppearanceRuleCondition"/> used to evaluate whether input value fall under the rule.
@@ -29,60 +21,18 @@ public class AppearanceRule {
     /// Style to use if the input value matches the rule.
     /// </summary>
     public AppearanceRuleStyle Style { get; set; } = AppearanceRuleStyle.Normal;
+
     /// <summary>
     /// Text format to use if the input value matches the rule.
     /// </summary>
     public string TextFormat { get; set; } = "";
 
-    public virtual string Value { get; set; } = "";
+    /// <summary>
+    /// Gets the normalized tule output string after all the rules and formats were applied.
+    /// </summary>
+    public virtual string Value { get; protected set; } = "";
 
-    //public string Value {
-    //    get {
-    //        return _stringValue;
-    //    }
-    //    set {
-    //        if (decimal.TryParse(value, NumberStyles.Number, CultureInfo.InvariantCulture, out var number)) {
-    //            _stringValue = value;
-    //            _decimalValue = number;
-    //        } else {
-    //            _stringValue = value;
-    //            _decimalValue = null;
-    //        }
-    //        _stringValue = value;
-
-    //    }
-    //}
-
-    //public static bool TryParse(string rawString, out AppearanceRule rule) {
-    //    var ruleParts = rawString.Split('|');
-
-    //    if (ruleParts.Length < 3) { goto error; }
-
-    //    if (TryParseCondition(ruleParts[0], out var condition) == false) { goto error; }
-    //    if (TryParseStyle(ruleParts[2], out var style) == false) { goto error; }
-
-    //    var format = "";
-    //    if (ruleParts.Length > 3) {
-    //        format = ruleParts[3];
-    //    }
-
-    //    if (decimal.TryParse(ruleParts[1], NumberStyles.Number, CultureInfo.InvariantCulture, out var number)) {
-    //        rule = new AppearanceRule(condition, number, style, format);
-    //    } else {
-    //        rule = new AppearanceRule(condition, ruleParts[1], style, format);
-    //    }
-
-    //    return true;
-
-    //error:
-    //    rule = new AppearanceRule();
-    //    return false;
-    //}
-
-    //public bool Matches(string checkValue) {
-    //    return Matches(checkValue, _stringValue);
-    //}
-
+    /// <inheritdoc/>
     public override string ToString() {
         var returnString = $"{ShortenCondition(Condition)}|{Value}|{Style.Type}";
 
@@ -141,6 +91,7 @@ public class AppearanceRule {
 
         return returnValue;
     }
+
     protected static bool TryParseStyle(string rawString, out AppearanceRuleType style) {
         var returnValue = true;
 
@@ -179,51 +130,6 @@ public class AppearanceRule {
 
         return returnValue;
     }
-
-    //private bool Matches(decimal x, decimal? y) {
-    //    if (y.HasValue == false) { return false; }
-
-    //    switch (Condition) {
-    //        case AppearanceRuleCondition.Equal:
-    //            return x == y;
-
-    //        case AppearanceRuleCondition.NotEqual:
-    //            return x != y;
-
-    //        case AppearanceRuleCondition.LessThan:
-    //            return x < y;
-
-    //        case AppearanceRuleCondition.LessThanOrEqual:
-    //            return x <= y;
-
-    //        case AppearanceRuleCondition.MoreThan:
-    //            return x > y;
-
-    //        case AppearanceRuleCondition.MoreThanOrEqual:
-    //            return x >= y;
-
-    //        case AppearanceRuleCondition.BitSet:
-    //            return ((((int)(x) >> (int)(y)) & 1) == 1);
-
-    //        case AppearanceRuleCondition.BitNotSet:
-    //            return ((((int)(x) >> (int)(y)) & 1) == 0);
-
-    //        default:
-    //            return false;
-    //    }
-    //}
-    //private bool Matches(string x, string y) {
-    //    switch (Condition) {
-    //        case AppearanceRuleCondition.Equal:
-    //            return x == y;
-
-    //        case AppearanceRuleCondition.NotEqual:
-    //            return x != y;
-
-    //        default:
-    //            return false;
-    //    }
-    //}
 
     private static string ShortenCondition(AppearanceRuleCondition condition) {
         switch (condition) {
