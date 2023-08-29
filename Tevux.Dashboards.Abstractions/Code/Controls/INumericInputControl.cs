@@ -1,4 +1,4 @@
-namespace Tevux.Dashboards.Abstractions;
+﻿namespace Tevux.Dashboards.Abstractions;
 
 /// <summary>
 /// Defines a numeric input control.
@@ -13,5 +13,4 @@ public interface INumericInputControl {
     /// Maximum input value.
     /// </summary>
     decimal Maximum { get; set; }
-    decimal Step { get; set; }
 }
