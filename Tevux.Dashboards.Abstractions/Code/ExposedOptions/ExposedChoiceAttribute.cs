@@ -19,7 +19,7 @@ public class ExposedChoiceAttribute : ExposedOptionAttribute {
     /// <param name="enumChoices">Enum to create choice names from.</param>
     /// <param name="isEditable">Set to <c>false</c> if you want to expose a read-only property to user, for example, last used connection parameters.</param>
     /// <param name="isSaveable">Set to <c>false</c> if you don't want value property to be saved in permanent storage (useful for properties that derive from other ones).</param>
-    public ExposedChoiceAttribute(Enum enumChoices, bool isEditable = true, bool isSaveable = true) : base(OptionType.ChoiceText, isEditable, isSaveable, null) {
-        Choices.AddRange(Enum.GetNames(enumChoices.GetType()));
+    public ExposedChoiceAttribute(Type enumChoices, bool isEditable = true, bool isSaveable = true) : base(OptionType.ChoiceText, isEditable, isSaveable, null) {
+        Choices.AddRange(Enum.GetNames(enumChoices));
     }
 }
