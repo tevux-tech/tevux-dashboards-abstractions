@@ -1,5 +1,11 @@
 ﻿namespace Tevux.Dashboards.Abstractions;
-#warning Remove from abstractions?..
+
+/// <summary>
+/// Control which contains a C# script code.
+/// </summary>
 public interface ICSharpScriptControl {
+    /// <summary>
+    /// The C# script code.
+    /// </summary>
     string Script { get; set; }
 }
