@@ -17,7 +17,7 @@ public interface IAppearanceRule {
     /// <summary>
     /// <see cref="IAppearanceRuleStyle"/> to use if the input value matches the rule.
     /// </summary>
-    IAppearanceRuleStyle Style { get; }
+    IAppearanceRuleStyle Style { get; set; }
 
     /// <summary>
     /// Text format to use if the input value matches the rule.
