@@ -1,9 +1,12 @@
-﻿namespace Tevux.Dashboards.Abstractions;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace Tevux.Dashboards.Abstractions;
 
 /// <summary>
 /// Base class for the other exposed option attributes. Not to be created directly.
 /// </summary>
 [AttributeUsage(AttributeTargets.Property)]
+[SuppressMessage("Performance", "CA1813:Avoid unsealed attributes", Justification = "It is inherited.")]
 public class ExposedOptionAttribute : Attribute {
     internal ExposedOptionAttribute(OptionType optionType, bool isEditable = true, bool isSaveable = true, string[]? choices = null) {
         OptionType = optionType;

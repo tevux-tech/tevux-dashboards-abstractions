@@ -4,7 +4,7 @@
 /// Exposes a choice from a predefined string list property to the host application. Exposed properties are treated in a special way, for example, automatically saved/loaded. 
 /// </summary>
 [AttributeUsage(AttributeTargets.Property)]
-public class ExposedChoiceAttribute : ExposedOptionAttribute {
+public sealed class ExposedChoiceAttribute : ExposedOptionAttribute {
     /// <summary>
     /// Creates an exposed string choice attribute.
     /// </summary>

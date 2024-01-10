@@ -4,7 +4,7 @@
 /// Exposes a number property (<c>int</c>, <c>double</c> or <c>decimal</c>) to the host application. Exposed properties are treated in a special way, for example, automatically saved/loaded. 
 /// </summary>
 [AttributeUsage(AttributeTargets.Property)]
-public class ExposedNumberAttribute : ExposedOptionAttribute {
+public sealed class ExposedNumberAttribute : ExposedOptionAttribute {
     /// <summary>
     /// Creates an exposed number attribute.
     /// </summary>

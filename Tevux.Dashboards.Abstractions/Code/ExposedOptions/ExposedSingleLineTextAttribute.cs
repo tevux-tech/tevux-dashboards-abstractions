@@ -4,7 +4,7 @@
 /// Exposes a single-line of text property to the host application. Exposed properties are treated in a special way, for example, automatically saved/loaded. 
 /// </summary>
 [AttributeUsage(AttributeTargets.Property)]
-public class ExposedSingleLineTextAttribute : ExposedOptionAttribute {
+public sealed class ExposedSingleLineTextAttribute : ExposedOptionAttribute {
     /// <summary>
     /// Creates an exposed single-line text attribute.
     /// </summary>

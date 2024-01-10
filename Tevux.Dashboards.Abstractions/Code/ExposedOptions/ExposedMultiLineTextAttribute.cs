@@ -4,7 +4,7 @@
 /// Exposes a multi-line text property to the host application. Exposed properties are treated in a special way, for example, automatically saved/loaded. 
 /// </summary>
 [AttributeUsage(AttributeTargets.Property)]
-public class ExposedMultiLineTextAttribute : ExposedOptionAttribute {
+public sealed class ExposedMultiLineTextAttribute : ExposedOptionAttribute {
     /// <summary>
     /// Creates an exposed multi-line text attribute.
     /// </summary>

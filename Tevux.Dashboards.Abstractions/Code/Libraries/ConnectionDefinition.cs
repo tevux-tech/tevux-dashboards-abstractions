@@ -9,15 +9,15 @@ public class ConnectionDefinition : INotifyPropertyChanged {
     private string _name = "";
     private string _parameters = "";
 
-    /// <inheritdoc/>
-    public event PropertyChangedEventHandler PropertyChanged = delegate { };
-
     /// <summary>
     /// Name of the definition.
     /// </summary>
     public string Name {
         get { return _name; }
-        set { _name = value; PropertyChanged(this, new PropertyChangedEventArgs(nameof(Name))); }
+        set {
+            _name = value;
+            PropertyChanged!(this, new PropertyChangedEventArgs(nameof(Name)));
+        }
     }
 
     /// <summary>
@@ -25,6 +25,12 @@ public class ConnectionDefinition : INotifyPropertyChanged {
     /// </summary>
     public string Parameters {
         get { return _parameters; }
-        set { _parameters = value; PropertyChanged(this, new PropertyChangedEventArgs(nameof(Parameters))); }
+        set {
+            _parameters = value;
+            PropertyChanged!(this, new PropertyChangedEventArgs(nameof(Parameters)));
+        }
     }
+
+    /// <inheritdoc/>
+    public event PropertyChangedEventHandler? PropertyChanged = delegate { };
 }
