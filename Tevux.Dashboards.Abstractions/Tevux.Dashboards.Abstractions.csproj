@@ -4,7 +4,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <NoWarn>CS1591,CS1573</NoWarn>
-    <Version>1.0.0-preview.43</Version>
+    <Version>1.0.0-preview.45</Version>
     <Company>Tevux Technologies</Company>
     <Copyright>© 2022 Tevux Technologies</Copyright>
     <Title>Tevux.Dashboards.Abstractions</Title>
